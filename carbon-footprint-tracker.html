@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen w-full bg-gradient-to-br from-green-200 via-green-100 to-green-400 flex flex-col">
+  <header class="bg-green-800 text-white py-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-3xl font-extrabold tracking-tight">Carbon Footprint Tracker</h1>
+      <a href="login.html" class="bg-white text-green-800 px-4 py-2 rounded-lg shadow hover:bg-green-100 font-semibold transition">Back to Dashboard</a>
+    </div>
+    <!-- Navigation Menu -->
+    <nav class="flex flex-wrap gap-2 md:gap-4 container mx-auto px-4 mt-2">
+      <a href="login.html#challenges" class="text-white hover:text-green-200 font-semibold">Challenges</a>
+      <a href="login.html#learn" class="text-white hover:text-green-200 font-semibold">Learn</a>
+      <a href="login.html#community" class="text-white hover:text-green-200 font-semibold">Community</a>
+      <a href="login.html#impact" class="text-white hover:text-green-200 font-semibold">Impact</a>
+      <a href="login.html#habits" class="text-white hover:text-green-200 font-semibold">Habits</a>
+      <a href="login.html#eco-tips" class="text-white hover:text-green-200 font-semibold">Eco Tips</a>
+      <a href="login.html#leaderboard" class="text-white hover:text-green-200 font-semibold">Leaderboard</a>
+    </nav>
+  </header>
+  <main class="flex-grow flex items-center justify-center">
+    <section class="w-full max-w-3xl bg-white/90 rounded-3xl shadow-2xl p-10 flex flex-col items-center mt-8 mb-8">
+      <div class="flex flex-col md:flex-row items-center mb-10 w-full">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Carbon Footprint" class="w-40 h-40 object-cover rounded-full shadow-xl mb-6 md:mb-0 md:mr-10 border-4 border-green-300">
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold mb-3 text-green-800">Track Your Carbon Footprint</h2>
+          <p class="text-gray-700 text-lg">Use this modern calculator to estimate your daily carbon emissions. Discover how your choices impact the planet and get instant feedback to help you live more sustainably.</p>
+        </div>
+      </div>
+      <form id="carbonForm" class="space-y-7 w-full">
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="electricity">Electricity Usage <span class="text-gray-500 text-sm">(kWh/day)</span>:</label>
+          <input type="number" id="electricity" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="0.1" required>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="car">Car Travel <span class="text-gray-500 text-sm">(km/day)</span>:</label>
+          <input type="number" id="car" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="0.1" required>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="publicTransport">Public Transport <span class="text-gray-500 text-sm">(km/day)</span>:</label>
+          <input type="number" id="publicTransport" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="0.1">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="flight">Flight Travel <span class="text-gray-500 text-sm">(hours/year)</span>:</label>
+          <input type="number" id="flight" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="0.1">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="heating">Home Heating (Natural Gas) <span class="text-gray-500 text-sm">(units/day)</span>:</label>
+          <input type="number" id="heating" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="0.1">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="meat">Meat Consumption <span class="text-gray-500 text-sm">(servings/day)</span>:</label>
+          <input type="number" id="meat" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="1" required>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="waste">Waste Generation <span class="text-gray-500 text-sm">(kg/day)</span>:</label>
+          <input type="number" id="waste" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="0.1">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2" for="water">Water Usage <span class="text-gray-500 text-sm">(liters/day)</span>:</label>
+          <input type="number" id="water" class="w-full border-2 border-green-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50 text-lg" min="0" step="1">
+        </div>
+        <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-3 rounded-xl shadow-lg hover:from-green-600 hover:to-green-800 transition text-lg">Calculate</button>
+      </form>
+      <div id="result" class="mt-10 text-center text-xl font-semibold"></div>
+    </section>
+  </main>
+  <footer class="bg-green-800 text-white text-center py-4 mt-auto shadow-inner">
+    &copy; 2025 EcoAwarenessHub. All rights reserved.
+  </footer>
+  <script>
+    document.getElementById('carbonForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+      const car = parseFloat(document.getElementById('car').value) || 0;
+      const publicTransport = parseFloat(document.getElementById('publicTransport').value) || 0;
+      const flight = parseFloat(document.getElementById('flight').value) || 0;
+      const heating = parseFloat(document.getElementById('heating').value) || 0;
+      const meat = parseFloat(document.getElementById('meat').value) || 0;
+      const waste = parseFloat(document.getElementById('waste').value) || 0;
+      const water = parseFloat(document.getElementById('water').value) || 0;
+      // Emission factors (kg CO2e per unit)
+      const electricityFactor = 0.92; // per kWh
+      const carFactor = 0.21; // per km
+      const publicTransportFactor = 0.08; // per km (bus/train average)
+      const flightFactor = 90 / 365; // per hour (short/long haul avg, annualized)
+      const heatingFactor = 2.2; // per unit natural gas
+      const meatFactor = 2.5; // per serving
+      const wasteFactor = 1.8; // per kg
+      const waterFactor = 0.0003; // per liter
+      const total = (electricity * electricityFactor)
+        + (car * carFactor)
+        + (publicTransport * publicTransportFactor)
+        + (flight * flightFactor)
+        + (heating * heatingFactor)
+        + (meat * meatFactor)
+        + (waste * wasteFactor)
+        + (water * waterFactor);
+      let feedback = '';
+      if (total < 5) {
+        feedback = '<span class="text-green-700">Excellent!</span> Your carbon footprint is low. Keep it up! 🌱';
+      } else if (total < 15) {
+        feedback = '<span class="text-yellow-600">Average.</span> There is room for improvement. Consider greener choices! 🌍';
+      } else {
+        feedback = '<span class="text-red-700">High.</span> Try to reduce your emissions for a healthier planet. 🌎';
+      }
+      document.getElementById('result').innerHTML = `Your estimated daily carbon footprint is <span class="text-green-800 font-bold">${total.toFixed(2)} kg CO₂e</span>.<br>${feedback}`;
+    });
+  </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const iconSun = document.getElementById('iconSun');
+  const iconMoon = document.getElementById('iconMoon');
+  // On page load, check localStorage
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark');
+    if (iconSun && iconMoon) {
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+    }
+  }
+  if (darkModeToggle && iconSun && iconMoon) {
+    darkModeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      if (isDark) {
+        localStorage.setItem('darkMode', 'enabled');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

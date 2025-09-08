@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eco-Habit Tracking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#f6fcf4] flex flex-col items-center justify-center p-8">
+  <!-- EcoSaver Navigation Bar -->
+  <nav class="w-full bg-[#f6fcf4] nav-shadow sticky top-0 z-40">
+    <div class="container mx-auto flex items-center justify-between px-8 py-3">
+      <div class="flex items-center gap-3">
+        <img src="LOGO.jpg" alt="EcoSaver Logo" class="w-12 h-12 rounded-lg object-contain bg-[#20c4b6] p-1" />
+        <span class="font-bold text-lg text-gray-900">EcoSaver</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 px-2 py-1 rounded-xl bg-[#e1f7ef] border border-[#20c4b6] font-semibold text-[#20c4b6]" id="ecoPointsDisplay">
+          <span>♻</span>
+          <span id="ecoPointsNum">120</span> pts
+        </div>
+        <button onclick="logEcoAction && logEcoAction()" class="bg-[#20c4b6] text-white px-3 py-1 rounded-lg font-bold shadow hover:bg-teal-500 transition">Log Eco-Action</button>
+        <div class="relative flex items-center gap-3" id="profileDropdownArea">
+          <img src="avtar1.png" alt="Profile" id="profileAvatar" class="w-10 h-10 rounded-full border-2 border-[#20c4b6] cursor-pointer" />
+          <div id="profileDropdown" class="absolute right-0 top-12 bg-white rounded-xl shadow-xl w-64 py-4 px-5 z-50 hidden" style="min-width:210px">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="avtar1.png" class="w-11 h-11 rounded-full border-2 border-[#41d9af]" />
+              <div>
+                <div class="font-bold text-lg text-[#20c4b6]" id="profileName">Aman Sharma</div>
+                <div class="text-sm text-gray-500" id="profileEmail">aman@email.com</div>
+              </div>
+            </div>
+            <hr class="mb-3"/>
+            <div>
+              <div class="font-semibold mb-2">Level: <span id="profileLevel">Eco-Warrior</span></div>
+              <div class="flex gap-2 flex-wrap text-sm">
+                <span class="bg-[#e1f7ef] text-[#20c4b6] rounded-lg px-2 py-1">Green Beginner</span>
+                <span class="bg-[#fff2e5] text-[#fd7e25] rounded-lg px-2 py-1">Eco-Warrior</span>
+              </div>
+            </div>
+            <hr class="my-3"/>
+            <div><span class="font-bold">Eco-Points:</span> <span id="profilePoints">120</span></div>
+          </div>
+        </div>
+        <button id="darkModeToggle"
+          class="ml-3 flex items-center justify-center w-12 h-12 rounded-full bg-[#e1f7ef] shadow-lg transition duration-300 hover:bg-[#41d9af] group focus:outline-none"
+          aria-label="Toggle dark mode">
+          <span id="darkModeIcon">
+            <svg class="block group-hover:scale-110 transition-transform duration-200" id="iconSun" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="#fd7e25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg class="hidden group-hover:scale-110 transition-transform duration-200" id="iconMoon" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="#41d9af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+          </span>
+        </button>
+        <div id="toast" class="toast"></div>
+        <button id="menuButton" class="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#41d9af] shadow-lg hover:bg-[#fd7e25] transition duration-200 group focus:outline-none">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-7 h-7 text-white group-hover:text-[#fffbe8] transition duration-200"
+               fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <line x1="5" y1="7" x2="19" y2="7" stroke-linecap="round"/>
+            <line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/>
+            <line x1="5" y1="17" x2="19" y2="17" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="max-w-2xl w-full bg-white rounded-2xl shadow p-8">
+    <h1 class="text-3xl font-bold text-[#20c4b6] mb-4">Eco-Habit Tracking</h1>
+    <p class="mb-6 text-gray-700">Build sustainable habits with daily tracking and motivation. From water conservation to waste reduction, see your progress and stay inspired!</p>
+    <!-- Habit Tracker Content -->
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold text-[#fd7e25] mb-2">Today's Eco-Habits</h2>
+      <form id="habitForm" class="space-y-2">
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#20c4b6]" name="habit" value="Saved water while brushing" /> Saved water while brushing
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#20c4b6]" name="habit" value="Used reusable bag" /> Used a reusable bag
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#20c4b6]" name="habit" value="Recycled waste" /> Recycled waste
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#20c4b6]" name="habit" value="Turned off unused lights" /> Turned off unused lights
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#20c4b6]" name="habit" value="Walked or cycled" /> Walked or cycled instead of using a vehicle
+        </label>
+      </form>
+      <div class="mt-4">
+        <div class="h-3 w-full bg-gray-200 rounded-full overflow-hidden">
+          <div id="progressBar" class="h-3 bg-[#20c4b6] transition-all duration-300" style="width: 0%"></div>
+        </div>
+        <p id="progressText" class="mt-2 text-sm text-gray-600">0/5 habits completed</p>
+      </div>
+      <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-4">
+        <div class="flex items-center gap-2 bg-[#e1f7ef] px-3 py-2 rounded-xl shadow">
+          <span class="text-[#fd7e25] text-xl">🔥</span>
+          <span id="streakCount" class="font-bold text-[#20c4b6]">0</span>
+          <span class="text-gray-700">day streak</span>
+        </div>
+        <div class="flex items-center gap-2 bg-[#fffbe8] px-3 py-2 rounded-xl shadow">
+          <span class="text-[#fd7e25] text-xl">🏅</span>
+          <span id="badgeName" class="font-bold text-[#fd7e25]">No badge yet</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-4 p-4 bg-[#f6fcf4] rounded-xl shadow">
+  <h3 class="font-semibold text-[#20c4b6] mb-1">Motivational Tip</h3>
+  <p id="ecoTip">Every small action counts! Consistency is the key to building eco-friendly habits.</p>
+    </div>
+    <a href="login.html" class="inline-block px-4 py-2 bg-gray-200 text-[#20c4b6] rounded hover:bg-[#e1f7ef] font-semibold">&larr; Back to Dashboard</a>
+    <!-- Invite a Friend Options -->
+    <div class="mt-6 flex flex-col items-center gap-3">
+      <span class="font-semibold text-[#20c4b6]">Invite a friend to join your eco-journey!</span>
+      <div class="flex gap-3">
+        <button onclick="inviteWhatsApp()" class="bg-[#25D366] text-white px-4 py-2 rounded shadow hover:bg-[#128C7E] flex items-center gap-2"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-5 h-5'><path stroke-linecap='round' stroke-linejoin='round' d='M7.5 12l3 3 6-6'/></svg>WhatsApp</button>
+        <button onclick="inviteEmail()" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-700 flex items-center gap-2"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-5 h-5'><path stroke-linecap='round' stroke-linejoin='round' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'/></svg>Email</button>
+        <button onclick="copyInviteLink()" class="bg-gray-200 text-[#20c4b6] px-4 py-2 rounded shadow hover:bg-gray-300 flex items-center gap-2"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-5 h-5'><path stroke-linecap='round' stroke-linejoin='round' d='M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'/></svg>Copy Link</button>
+      </div>
+      <span id="copyMsg" class="text-xs text-green-600 hidden">Link copied!</span>
+    </div>
+  </div>
+
+<script>
+// Eco-Points Sync Across Pages
+function updateEcoPointsHeader() {
+  const points = localStorage.getItem('ecoPoints') || 120;
+  document.querySelectorAll('#ecoPointsNum').forEach(el => el.textContent = points);
+}
+window.addEventListener('storage', updateEcoPointsHeader);
+document.addEventListener('DOMContentLoaded', updateEcoPointsHeader);
+</script>
+</body>
+// Invite friend functions
+function inviteWhatsApp() {
+  const msg = encodeURIComponent('Join me in building eco-friendly habits! Track your progress and stay motivated: ' + window.location.href);
+  window.open('https://wa.me/?text=' + msg, '_blank');
+}
+function inviteEmail() {
+  const subject = encodeURIComponent('Join me on Eco-Habit Tracker!');
+  const body = encodeURIComponent('Let\'s build eco-friendly habits together! Check out this tracker: ' + window.location.href);
+  window.open('mailto:?subject=' + subject + '&body=' + body);
+}
+function copyInviteLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    document.getElementById('copyMsg').classList.remove('hidden');
+    setTimeout(() => document.getElementById('copyMsg').classList.add('hidden'), 2000);
+  });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  // Dark mode logic
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const iconSun = document.getElementById('iconSun');
+  const iconMoon = document.getElementById('iconMoon');
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark');
+    if (iconSun && iconMoon) {
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+    }
+  }
+  if (darkModeToggle && iconSun && iconMoon) {
+    darkModeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      if (isDark) {
+        localStorage.setItem('darkMode', 'enabled');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    });
+  }
+
+  // Habit tracker logic with streaks, badges, and rotating tips
+  const habitForm = document.getElementById('habitForm');
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  const streakCount = document.getElementById('streakCount');
+  const badgeName = document.getElementById('badgeName');
+  const ecoTip = document.getElementById('ecoTip');
+
+  // Rotating motivational tips
+  const tips = [
+    "Every small action counts! Consistency is the key to building eco-friendly habits.",
+    "Celebrate your progress, not perfection. Each day you make a difference!",
+    "Invite a friend to join your eco-journey and multiply your impact.",
+    "A greener world starts with your daily choices. Keep going!",
+    "Your streak inspires others. Stay motivated and inspire your community!"
+  ];
+  if (ecoTip) {
+    const today = new Date().getDate();
+    ecoTip.textContent = tips[today % tips.length];
+  }
+
+  // Streak and badge logic
+  function getTodayKey() {
+    const d = new Date();
+    return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+  }
+  function updateStreakAndBadge(completed) {
+    let streak = Number(localStorage.getItem('ecoStreak') || 0);
+    let lastDay = localStorage.getItem('ecoLastDay');
+    const todayKey = getTodayKey();
+    if (completed && lastDay !== todayKey) {
+      if (lastDay) {
+        // Check if yesterday was last streak day
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yKey = `${yesterday.getFullYear()}-${yesterday.getMonth()+1}-${yesterday.getDate()}`;
+        if (lastDay === yKey) {
+          streak += 1;
+        } else {
+          streak = 1;
+        }
+      } else {
+        streak = 1;
+      }
+      localStorage.setItem('ecoStreak', streak);
+      localStorage.setItem('ecoLastDay', todayKey);
+    }
+    if (!completed && lastDay === todayKey) {
+      // If user unchecks all today, remove today as last streak day
+      localStorage.setItem('ecoLastDay', '');
+      streak = Math.max(0, streak - 1);
+      localStorage.setItem('ecoStreak', streak);
+    }
+    if (streakCount) streakCount.textContent = streak;
+    // Badge logic
+    let badge = 'No badge yet';
+    if (streak >= 7) badge = 'Eco Streak Master';
+    else if (streak >= 3) badge = 'Eco Streaker';
+    else if (streak >= 1) badge = 'Eco Starter';
+    if (badgeName) badgeName.textContent = badge;
+  }
+
+  if (habitForm && progressBar && progressText) {
+    habitForm.addEventListener('change', function() {
+      const total = habitForm.querySelectorAll('input[type="checkbox"]').length;
+      const checked = habitForm.querySelectorAll('input[type="checkbox"]:checked').length;
+      const percent = Math.round((checked / total) * 100);
+      progressBar.style.width = percent + '%';
+      progressText.textContent = `${checked}/${total} habits completed`;
+      // Streak and badge update
+      updateStreakAndBadge(checked === total);
+    });
+    // On load, restore streak and badge
+    updateStreakAndBadge(false);
+  }
+});
+</script>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Ecological Issues</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { min-height: 100vh; background: #f6fcf4; }
+    .issue-img { width: 100%; max-width: 320px; height: 200px; object-fit: cover; border-radius: 1rem; }
+    .issue-card { background: #fff; border-radius: 1.5rem; box-shadow: 0 4px 24px rgba(32,196,182,0.08); padding: 2rem; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; }
+    @media (min-width: 768px) {
+      .issue-card { flex-direction: row; align-items: flex-start; }
+      .issue-content { margin-left: 2rem; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#f6fcf4] font-inter">
+  <!-- Navbar with Profile, Points, Avatar -->
+  <nav class="w-full bg-[#f6fcf4] nav-shadow sticky top-0 z-40">
+    <div class="container mx-auto flex items-center justify-between px-8 py-3">
+      <div class="flex items-center gap-3">
+        <img src="LOGO.jpg" alt="EcoSaver Logo" class="w-12 h-12 rounded-lg object-contain bg-[#20c4b6] p-1" />
+        <span class="font-bold text-lg text-gray-900">EcoSaver</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 px-2 py-1 rounded-xl bg-[#e1f7ef] border border-[#20c4b6] font-semibold text-[#20c4b6]" id="ecoPointsDisplay">
+          <span>♻</span>
+          <span id="ecoPointsNum">120</span> pts
+        </div>
+        <a href="login.html" class="text-[#20c4b6] font-semibold px-4 py-2 rounded hover:bg-[#e1f7ef] transition">Dashboard</a>
+      </div>
+    </div>
+    <nav class="flex flex-wrap gap-2 md:gap-4 container mx-auto px-4 mt-2">
+      <a href="login.html#challenges" class="text-white hover:text-green-200 font-semibold">Challenges</a>
+      <a href="login.html#learn" class="text-white hover:text-green-200 font-semibold">Learn</a>
+      <a href="login.html#community" class="text-white hover:text-green-200 font-semibold">Community</a>
+      <a href="login.html#impact" class="text-white hover:text-green-200 font-semibold">Impact</a>
+      <a href="login.html#habits" class="text-white hover:text-green-200 font-semibold">Habits</a>
+      <a href="login.html#eco-tips" class="text-white hover:text-green-200 font-semibold">Eco Tips</a>
+      <a href="login.html#leaderboard" class="text-white hover:text-green-200 font-semibold">Leaderboard</a>
+    </nav>
+  </nav>
+  <div class="container mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold text-[#20c4b6] mb-8 text-center">Major Local Ecological Issues in India</h1>
+    <div class="space-y-10">
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Air Pollution in Delhi" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">1. Air Pollution in Delhi</h2>
+          <p class="text-gray-700">Delhi, India's capital, is infamous for its hazardous air quality, especially during winter months. The city often records Air Quality Index (AQI) levels in the 'severe' category, making it one of the most polluted cities globally. The primary contributors are vehicular emissions, industrial discharges, construction dust, and the seasonal burning of crop stubble in neighboring states. During November, a thick smog engulfs the city, reducing visibility and causing respiratory issues for millions. Prolonged exposure to such air can lead to chronic bronchitis, asthma, and even heart disease. The government has implemented measures like the odd-even vehicle rule, bans on firecrackers, and promoting public transport, but the problem persists. Citizens are encouraged to use masks, air purifiers, and support green initiatives like tree plantation and carpooling. Addressing Delhi's air pollution requires coordinated efforts from government, industry, and the public to ensure cleaner air for future generations.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Water Scarcity in Chennai" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">2. Water Scarcity in Chennai</h2>
+          <p class="text-gray-700">Chennai, a major metropolitan city in southern India, has faced severe water crises in recent years. In 2019, the city made global headlines when its main reservoirs dried up, forcing residents to depend on water tankers and distant sources. The crisis was caused by a combination of poor rainfall, over-extraction of groundwater, rapid urbanization, and mismanagement of water resources. Many lakes and wetlands that once acted as natural reservoirs have been encroached upon or polluted. The government and NGOs have since promoted rainwater harvesting, restoration of water bodies, and efficient water use in households and industries. However, sustainable water management remains a challenge as the city continues to grow. Citizens are urged to fix leaks, reuse greywater, and support community efforts to revive local lakes and ponds. Ensuring water security for Chennai requires a long-term vision and active participation from all stakeholders.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" alt="Plastic Pollution in Mumbai" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">3. Plastic Pollution in Mumbai</h2>
+          <p class="text-gray-700">Mumbai, India's financial capital, is also a hotspot for plastic pollution, especially along its coastline. Every monsoon, tons of plastic waste are washed onto beaches like Versova and Juhu, endangering marine life and causing urban flooding. Single-use plastics, such as bags, bottles, and packaging, are the main culprits. The city has banned certain plastic items, but enforcement remains a challenge. Local volunteers and NGOs regularly organize beach cleanups, raising awareness about the dangers of plastic to both humans and wildlife. Microplastics have been found in fish and even drinking water, posing health risks. Citizens are encouraged to reduce plastic use, switch to cloth bags and reusable containers, and segregate waste at source. Mumbai's fight against plastic pollution is ongoing, requiring both policy changes and behavioral shifts among its residents.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Deforestation in North-East India" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">4. Deforestation in North-East India</h2>
+          <p class="text-gray-700">The North-East region of India is a biodiversity hotspot, home to unique flora and fauna as well as many indigenous communities. However, large-scale deforestation for shifting cultivation (jhum), logging, and infrastructure projects has led to habitat loss and soil erosion. Forest cover is shrinking, threatening endangered species like the Hoolock Gibbon and the Indian Hornbill. Deforestation also disrupts the traditional livelihoods of local tribes, who depend on forests for food, medicine, and culture. Conservation efforts include promoting sustainable agriculture, community forestry, and eco-tourism. Protecting the North-East's forests is crucial for maintaining ecological balance and supporting the region's rich cultural heritage.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="River Pollution in Ganga & Yamuna" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">5. River Pollution in Ganga & Yamuna</h2>
+          <p class="text-gray-700">The Ganga and Yamuna rivers are considered sacred by millions, but they are also among the most polluted rivers in the world. Industrial effluents, untreated sewage, agricultural runoff, and religious offerings contribute to high levels of toxins and pathogens. This pollution affects not only aquatic life but also the health of people who use river water for drinking, bathing, and irrigation. The government has launched initiatives like Namami Gange to clean and rejuvenate these rivers, but progress is slow. Community participation, stricter enforcement of pollution norms, and investment in sewage treatment are essential for restoring the health of these lifelines of India.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=800&q=80" alt="Urban Heat Islands in Ahmedabad" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">6. Urban Heat Islands in Ahmedabad</h2>
+          <p class="text-gray-700">Ahmedabad, like many Indian cities, is experiencing the urban heat island effect, where built-up areas become significantly warmer than surrounding rural regions. This is due to the replacement of natural vegetation with concrete, asphalt, and buildings, which absorb and retain heat. The lack of green spaces and water bodies exacerbates the problem, leading to higher energy consumption for cooling and increased health risks during heatwaves. The city has launched a Heat Action Plan, promoting cool roofs, tree plantation, and public awareness campaigns. Urban planning that prioritizes green infrastructure is key to mitigating heat islands and making cities more livable.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80" alt="Mangrove Loss in Sundarbans" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">7. Mangrove Loss in Sundarbans</h2>
+          <p class="text-gray-700">The Sundarbans, the world's largest mangrove forest, straddles India and Bangladesh and is a UNESCO World Heritage Site. Rising sea levels, frequent cyclones, and human encroachment are causing rapid loss of mangrove cover. This threatens the habitat of the endangered Royal Bengal Tiger and many other species. Mangroves act as natural barriers against storms and help in carbon sequestration. Conservation efforts include replanting mangroves, regulating fishing, and involving local communities in protection. Preserving the Sundarbans is vital for biodiversity, climate resilience, and the livelihoods of millions who depend on its resources.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Desertification in Rajasthan" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">8. Desertification in Rajasthan</h2>
+          <p class="text-gray-700">Rajasthan, India's largest state, is facing the threat of desertification, where fertile land turns into desert due to overgrazing, deforestation, and climate change. The Thar Desert is expanding, reducing agricultural productivity and affecting rural livelihoods. Sandstorms, water scarcity, and loss of vegetation are common problems. The government has initiated afforestation drives, water conservation projects, and sustainable farming practices to combat desertification. Community participation is crucial, as local knowledge and traditional methods can help restore degraded lands and ensure food security for future generations.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80" alt="Human-Wildlife Conflict in Uttarakhand" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">9. Human-Wildlife Conflict in Uttarakhand</h2>
+          <p class="text-gray-700">Uttarakhand, a Himalayan state, is witnessing increasing conflicts between humans and wildlife as villages expand into forested areas. Elephants, leopards, and bears sometimes enter settlements in search of food, leading to crop damage, livestock loss, and even human casualties. The government has set up compensation schemes, early warning systems, and community awareness programs to reduce conflict. Protecting wildlife corridors, restoring habitats, and involving local people in conservation are essential for peaceful coexistence and biodiversity protection.</p>
+        </div>
+      </div>
+      <div class="issue-card">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="E-Waste in Bengaluru" class="issue-img">
+        <div class="issue-content">
+          <h2 class="font-bold text-2xl mb-2">10. E-Waste in Bengaluru</h2>
+          <p class="text-gray-700">Bengaluru, India's tech capital, generates thousands of tons of electronic waste every year. Much of this e-waste is processed informally, with workers dismantling devices by hand, often without protective gear. This leads to the release of toxic substances like lead, mercury, and cadmium, contaminating soil and water. The city has set up e-waste collection centers and recycling plants, but awareness and participation remain low. Citizens are encouraged to dispose of old electronics responsibly and support certified recyclers. Managing e-waste sustainably is vital for protecting both the environment and public health in India's rapidly growing cities.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-10">
+      <a href="login.html" class="inline-block px-6 py-3 bg-gray-200 text-[#20c4b6] rounded hover:bg-[#e1f7ef] font-semibold text-lg">&larr; Back to Dashboard</a>
+    </div>
+  </div>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const iconSun = document.getElementById('iconSun');
+  const iconMoon = document.getElementById('iconMoon');
+  // On page load, check localStorage
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark');
+    if (iconSun && iconMoon) {
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+    }
+  }
+  if (darkModeToggle && iconSun && iconMoon) {
+    darkModeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      if (isDark) {
+        localStorage.setItem('darkMode', 'enabled');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
